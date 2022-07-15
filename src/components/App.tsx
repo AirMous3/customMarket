@@ -9,8 +9,9 @@ const Main = styled.div``;
 export const App = () => {
   return (
     <Main>
-      <Container>
         <Header />
+      <Container>
+       123
       </Container>
     </Main>
   );

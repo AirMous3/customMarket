@@ -14,14 +14,12 @@ export const Header = () => {
         <div>Custom.</div>
         <HeaderInput />
       </TitleWrapper>
-      <div>
-        <HeaderUl>
-          <li>/shop</li>
-          <li>/sell</li>
-          <li>favorite</li>
-          <li>profile</li>
-        </HeaderUl>
-      </div>
+      <HeaderUl>
+        <li>/shop</li>
+        <li>/sell</li>
+        <li>favorite</li>
+        <li>profile</li>
+      </HeaderUl>
     </HeaderContainer>
   );
 };
