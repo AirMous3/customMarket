@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Main = styled.div`
-  font-size: 60px;
-`;
+import { Container } from '@/components/Container';
+import { Header } from '@/components/Header';
+
+const Main = styled.div``;
 
 export const App = () => {
-  return <Main>123</Main>;
+  return (
+    <Main>
+      <Container>
+        <Header />
+      </Container>
+    </Main>
+  );
 };
