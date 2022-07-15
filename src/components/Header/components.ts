@@ -14,6 +14,9 @@ export const HeaderContainer = styled.div`
 export const HeaderUl = styled.ul`
   display: flex;
   gap: 40px;
+  li {
+    font-weight: 600;
+  }
 `;
 export const TitleWrapper = styled.div`
   display: flex;
