@@ -56,7 +56,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const HeaderTitle = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes[3]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
   font-weight: 600;
   color: ${({ theme }) => theme.colors.darkRed};
   text-transform: uppercase;

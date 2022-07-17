@@ -10,7 +10,7 @@
     "build": "NODE_ENV=production webpack",
     "build-dev": "webpack",
     "clean": "rm -rf dist",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build-dev",
     "deploy": "gh-pages -d dist"
   },
   "license": "ISC",
