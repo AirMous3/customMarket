@@ -5,8 +5,7 @@ const SCREEN_SIZES: { [key: string]: number } = {
   mobileL: 640,
   tablet: 768,
   laptop: 992,
-  laptopM: 1140,
-  laptopL: 1244,
+  laptopM: 1200,
 } as const;
 
 const above = Object.keys(SCREEN_SIZES).reduce(

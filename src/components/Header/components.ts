@@ -121,6 +121,7 @@ export const HeaderNavbarUl = styled.ul`
   padding: 10px;
   display: flex;
   gap: 20px;
+  font-size: 13px;
 
   li {
     text-transform: uppercase;

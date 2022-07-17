@@ -1,18 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
-
-const Main = styled.div``;
+import { Main } from '@/components/Main';
 
 export const App = () => {
   return (
-    <Main>
-        <Header />
+    <div>
+      <Header />
       <Container>
-       123
+        <Main />
       </Container>
-    </Main>
+    </div>
   );
 };
