@@ -12194,6 +12194,88 @@ exports.Container = styled_components_1.default.div `
 
 /***/ }),
 
+/***/ "./src/components/Footer/components.ts":
+/*!*********************************************!*\
+  !*** ./src/components/Footer/components.ts ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FooterIcon = exports.FooterIconWrapper = exports.FooterLink = exports.FooterLinks = exports.FooterWrapper = void 0;
+const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+exports.FooterWrapper = styled_components_1.default.div `
+  padding: 20px 40px;
+  display: flex;
+  box-shadow: ${({ theme }) => theme.boxShadows[0]};
+`;
+exports.FooterLinks = styled_components_1.default.div `
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  gap: 30px;
+`;
+exports.FooterLink = styled_components_1.default.a `
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes[0]};
+`;
+exports.FooterIconWrapper = styled_components_1.default.div `
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+`;
+exports.FooterIcon = styled_components_1.default.div `
+  width: 22px;
+  height: 22px;
+  background-image: url(${({ icon }) => icon});
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+
+/***/ }),
+
+/***/ "./src/components/Footer/config.ts":
+/*!*****************************************!*\
+  !*** ./src/components/Footer/config.ts ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.footerIcons = exports.footerLinks = void 0;
+const FacebookLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/FacebookLogo.svg */ "./src/assets/FacebookLogo.svg"));
+const InstagramLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/InstagramLogo.svg */ "./src/assets/InstagramLogo.svg"));
+const TwitterLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/TwitterLogo.svg */ "./src/assets/TwitterLogo.svg"));
+const VKLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/VKLogo.svg */ "./src/assets/VKLogo.svg"));
+exports.footerLinks = [
+    { path: '#about', label: 'about' },
+    { path: '#faq', label: 'faq' },
+    { path: '#terms', label: 'terms' },
+    { path: '#privacy', label: 'privacy' },
+    { path: '#contacts', label: 'contacts' },
+    { path: '#jobs', label: 'jobs' },
+];
+exports.footerIcons = [
+    { path: 'https://facebook.com/', icon: FacebookLogo_svg_1.default },
+    { path: 'https://www.instagram.com/', icon: InstagramLogo_svg_1.default },
+    { path: 'https://twitter.com/', icon: TwitterLogo_svg_1.default },
+    { path: 'https://vk.com/', icon: VKLogo_svg_1.default },
+];
+
+
+/***/ }),
+
 /***/ "./src/components/Footer/index.tsx":
 /*!*****************************************!*\
   !*** ./src/components/Footer/index.tsx ***!
@@ -12206,70 +12288,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Footer = exports.FooterVkontakteIcon = exports.FooterTwitterIcon = exports.FooterInstagramIcon = exports.FooterIcon = exports.FooterIconWrapper = exports.FooterLinks = exports.FooterWrapper = void 0;
+exports.Footer = void 0;
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-const FacebookLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/FacebookLogo.svg */ "./src/assets/FacebookLogo.svg"));
-const InstagramLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/InstagramLogo.svg */ "./src/assets/InstagramLogo.svg"));
-const TwitterLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/TwitterLogo.svg */ "./src/assets/TwitterLogo.svg"));
-const VKLogo_svg_1 = __importDefault(__webpack_require__(/*! @/assets/VKLogo.svg */ "./src/assets/VKLogo.svg"));
-exports.FooterWrapper = styled_components_1.default.div `
-  padding: 20px 40px;
-  display: flex;
-  box-shadow: ${({ theme }) => theme.boxShadows[0]};
-`;
-exports.FooterLinks = styled_components_1.default.div `
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-  gap: 30px;
-
-  a {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: ${({ theme }) => theme.fontSizes[0]};
-  }
-`;
-exports.FooterIconWrapper = styled_components_1.default.div `
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 12px;
-`;
-exports.FooterIcon = styled_components_1.default.div `
-  width: 22px;
-  height: 22px;
-  background-image: url(${FacebookLogo_svg_1.default});
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-exports.FooterInstagramIcon = (0, styled_components_1.default)(exports.FooterIcon) `
-  background-image: url(${InstagramLogo_svg_1.default});
-`;
-exports.FooterTwitterIcon = (0, styled_components_1.default)(exports.FooterIcon) `
-  background-image: url(${TwitterLogo_svg_1.default});
-`;
-exports.FooterVkontakteIcon = (0, styled_components_1.default)(exports.FooterIcon) `
-  background-image: url(${VKLogo_svg_1.default});
-`;
+const config_1 = __webpack_require__(/*! @/components/Footer/config */ "./src/components/Footer/config.ts");
+const components_1 = __webpack_require__(/*! ./components */ "./src/components/Footer/components.ts");
 const Footer = () => {
-    return (react_1.default.createElement(exports.FooterWrapper, null,
-        react_1.default.createElement(exports.FooterLinks, null,
-            react_1.default.createElement("a", { href: "" }, "about"),
-            react_1.default.createElement("a", { href: "" }, "faq"),
-            react_1.default.createElement("a", { href: "" }, "terms"),
-            react_1.default.createElement("a", { href: "" }, "privacy"),
-            react_1.default.createElement("a", { href: "" }, "contacts"),
-            react_1.default.createElement("a", { href: "" }, "jobs")),
-        react_1.default.createElement(exports.FooterIconWrapper, null,
-            react_1.default.createElement("a", { href: "" },
-                react_1.default.createElement(exports.FooterIcon, null)),
-            react_1.default.createElement("a", { href: "" },
-                react_1.default.createElement(exports.FooterInstagramIcon, null)),
-            react_1.default.createElement("a", { href: "" },
-                react_1.default.createElement(exports.FooterTwitterIcon, null)),
-            react_1.default.createElement("a", { href: "" },
-                react_1.default.createElement(exports.FooterVkontakteIcon, null)),
+    return (react_1.default.createElement(components_1.FooterWrapper, null,
+        react_1.default.createElement(components_1.FooterLinks, null, config_1.footerLinks.map(({ path, label }) => (react_1.default.createElement(components_1.FooterLink, { href: path, rel: "noopener noreferrer nofollow" }, label)))),
+        react_1.default.createElement(components_1.FooterIconWrapper, null,
+            config_1.footerIcons.map(({ icon, path }) => (react_1.default.createElement("a", { href: path, target: "_blank", rel: "noopener noreferrer nofollow" },
+                react_1.default.createElement(components_1.FooterIcon, { icon: icon })))),
             react_1.default.createElement("span", null, "CustomMarket \u00A9 2022"))));
 };
 exports.Footer = Footer;
@@ -12341,7 +12369,7 @@ exports.TitleWrapper = styled_components_1.default.div `
   }
 `;
 exports.HeaderTitle = styled_components_1.default.div `
-  font-size: ${({ theme }) => theme.fontSizes[3]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
   font-weight: 600;
   color: ${({ theme }) => theme.colors.darkRed};
   text-transform: uppercase;
