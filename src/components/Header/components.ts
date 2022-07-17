@@ -125,5 +125,6 @@ export const HeaderNavbarUl = styled.ul`
 
   li {
     text-transform: uppercase;
+    cursor: pointer;
   }
 `;

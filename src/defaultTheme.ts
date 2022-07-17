@@ -39,12 +39,13 @@ export const theme = {
   },
   boxShadows: ['rgb(17 17 49 / 12%) 6px 6px 16px'],
   fontSizes: [
-    '14px', // 0
-    '16px', // 1
-    '20px', // 2
-    '40px', // 3
-    '56px', // 4
-    '65px', // 5
+    '12px', //0
+    '14px', // 1
+    '16px', // 2
+    '20px', // 3
+    '40px', // 4
+    '56px', // 5
+    '65px', // 6
   ],
   above,
   below,
