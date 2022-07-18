@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { MainSliderCarousel } from '@/components/Slider';
+
 export const MainWrapper = styled.main`
   display: flex;
   flex-direction: column;
@@ -8,16 +10,6 @@ export const MainWrapper = styled.main`
   gap: 20px;
 `;
 
-export const MainSlider = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-export const MainImage = styled.div`
-  background: red;
-  height: 475px;
-  width: 60%;
-`;
 export const MainLatestCustoms = styled.ul`
   display: flex;
   gap: 15px;
@@ -51,25 +43,12 @@ export const MainBestCustom = styled.div`
     width: 60%;
   }
 `;
-export const MainSliderWrapper = styled.div`
-  background: blueviolet;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-`;
+
 export const Main = () => {
   return (
     <MainWrapper>
-      <MainSlider>
-        <MainSliderWrapper>
-          <div>CATEGORIES</div>
-          <div>NAME: GUCCI</div>
-          <button>buy now</button>
-        </MainSliderWrapper>
-        <MainImage>IMAGE</MainImage>
-      </MainSlider>
+
+      <MainSliderCarousel />
 
       <MainLatestCustoms>
         <li> LATEST CUSTOMS</li>
