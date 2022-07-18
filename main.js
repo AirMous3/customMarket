@@ -18401,18 +18401,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SliderContainer = exports.SlideWrapper = exports.SlideImage = exports.SlideCategoryWrapper = void 0;
+exports.SliderContainer = exports.SlideWrapper = exports.SlideImage = exports.SlideButton = exports.SlideCategorySubTitle = exports.SlideCategoryTitle = exports.SlideCategoryWrapper = void 0;
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+const leftArrow_svg_1 = __importDefault(__webpack_require__(/*! @/assets/leftArrow.svg */ "./src/assets/leftArrow.svg"));
+const rightArrow_svg_1 = __importDefault(__webpack_require__(/*! @/assets/rightArrow.svg */ "./src/assets/rightArrow.svg"));
 exports.SlideCategoryWrapper = styled_components_1.default.div `
-  background: blueviolet;
   width: 40%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  text-transform: uppercase;
+`;
+exports.SlideCategoryTitle = styled_components_1.default.h3 ``;
+exports.SlideCategorySubTitle = styled_components_1.default.div ``;
+exports.SlideButton = styled_components_1.default.button `
+  border: 1px solid #e1e1e1;
+  padding: 12px 16px;
+  min-width: 150px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
 `;
 exports.SlideImage = styled_components_1.default.div `
-  background: red;
+  background-image: url(${({ image }) => image});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 475px;
   width: 60%;
 `;
@@ -18422,14 +18437,64 @@ exports.SlideWrapper = styled_components_1.default.div `
 exports.SliderContainer = styled_components_1.default.div `
   width: 100%;
 
+  .slick-prev {
+    left: -40px;
+  }
+
+  .slick-next {
+    right: -40px;
+  }
+
   .slick-next:before {
+    content: url(${rightArrow_svg_1.default});
     color: black;
   }
 
   .slick-prev:before {
+    content: url(${leftArrow_svg_1.default});
     color: black;
   }
 `;
+
+
+/***/ }),
+
+/***/ "./src/components/Slider/config.ts":
+/*!*****************************************!*\
+  !*** ./src/components/Slider/config.ts ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.sliderConfig = void 0;
+const bear_webp_1 = __importDefault(__webpack_require__(/*! @/assets/sliderImages/bear.webp */ "./src/assets/sliderImages/bear.webp"));
+const nike_webp_1 = __importDefault(__webpack_require__(/*! @/assets/sliderImages/nike.webp */ "./src/assets/sliderImages/nike.webp"));
+const simpsons_webp_1 = __importDefault(__webpack_require__(/*! @/assets/sliderImages/simpsons.webp */ "./src/assets/sliderImages/simpsons.webp"));
+exports.sliderConfig = [
+    {
+        path: '#ololo',
+        title: 'sell your listings on custom market',
+        subtitle: 'featured sellers',
+        image: simpsons_webp_1.default,
+    },
+    {
+        path: '#ololo',
+        title: 'sell your listings on custom market',
+        subtitle: 'featured sellers',
+        image: nike_webp_1.default,
+    },
+    {
+        path: '#lolo',
+        title: 'sell your listings on custom market',
+        subtitle: 'featured sellers',
+        image: bear_webp_1.default,
+    },
+];
 
 
 /***/ }),
@@ -18451,7 +18516,18 @@ const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules
 const react_slick_1 = __importDefault(__webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js"));
 __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
 __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
+const config_1 = __webpack_require__(/*! @/components/Slider/config */ "./src/components/Slider/config.ts");
 const components_1 = __webpack_require__(/*! ./components */ "./src/components/Slider/components.ts");
+const Slide = ({ subtitle, title, image, path }) => {
+    console.log(image);
+    return (react_1.default.createElement(components_1.SlideWrapper, null,
+        react_1.default.createElement(components_1.SlideCategoryWrapper, null,
+            react_1.default.createElement(components_1.SlideCategorySubTitle, null, subtitle),
+            react_1.default.createElement(components_1.SlideCategoryTitle, null, title),
+            react_1.default.createElement("a", { href: path },
+                react_1.default.createElement(components_1.SlideButton, null, "shop now"))),
+        react_1.default.createElement(components_1.SlideImage, { image: image })));
+};
 const MainSliderCarousel = () => {
     const settings = {
         autoplay: true,
@@ -18480,19 +18556,7 @@ const MainSliderCarousel = () => {
         ],
     };
     return (react_1.default.createElement(components_1.SliderContainer, null,
-        react_1.default.createElement(react_slick_1.default, Object.assign({}, settings),
-            react_1.default.createElement(components_1.SlideWrapper, null,
-                react_1.default.createElement(components_1.SlideCategoryWrapper, null,
-                    react_1.default.createElement("div", null, "CATEGORIES"),
-                    react_1.default.createElement("div", null, "NAME: GUCCI"),
-                    react_1.default.createElement("button", null, "buy now")),
-                react_1.default.createElement(components_1.SlideImage, null, "IMAGE")),
-            react_1.default.createElement(components_1.SlideWrapper, null,
-                react_1.default.createElement(components_1.SlideCategoryWrapper, null,
-                    react_1.default.createElement("div", null, "CATEGORIES"),
-                    react_1.default.createElement("div", null, "NAME: GUCCI"),
-                    react_1.default.createElement("button", null, "buy now")),
-                react_1.default.createElement(components_1.SlideImage, null, "IMAGE")))));
+        react_1.default.createElement(react_slick_1.default, Object.assign({}, settings), config_1.sliderConfig.map(({ path, subtitle, title, image }, index) => (react_1.default.createElement(Slide, { key: index, subtitle: subtitle, title: title, image: image, path: path }))))));
 };
 exports.MainSliderCarousel = MainSliderCarousel;
 
@@ -18709,6 +18773,17 @@ module.exports = __webpack_require__.p + "images/c1d827db83a0c941070a.svg";
 
 /***/ }),
 
+/***/ "./src/assets/leftArrow.svg":
+/*!**********************************!*\
+  !*** ./src/assets/leftArrow.svg ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMTI5MC4wMDAwMDAgMTI4MC4wMDAwMDAiCiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij4KPG1ldGFkYXRhPgpDcmVhdGVkIGJ5IHBvdHJhY2UgMS4xNiwgd3JpdHRlbiBieSBQZXRlciBTZWxpbmdlciAyMDAxLTIwMTkKPC9tZXRhZGF0YT4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTI4MC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0zMzY1IDk2MDUgYy0xNzMyIC0xNzU2IC0zMTUwIC0zMTk4IC0zMTUwIC0zMjA1IDAgLTYgMTQxOCAtMTQ0OQozMTUwIC0zMjA1IGwzMTUwIC0zMTk0IDMwNDAgMCAzMDQwIC0xIC0xMjEgMTIyIGMtNjcgNjggLTE0ODggMTUwNiAtMzE1OAozMTk2IC0xNjcwIDE2OTAgLTMwMzYgMzA3NyAtMzAzNiAzMDgyIDAgOCAxNDUwIDE0NzggNjE4OSA2MjczIGwxMjYgMTI3Ci0zMDQwIC0xIC0zMDQwIDAgLTMxNTAgLTMxOTR6Ii8+CjwvZz4KPC9zdmc+Cg==";
+
+/***/ }),
+
 /***/ "./src/assets/loop.svg":
 /*!*****************************!*\
   !*** ./src/assets/loop.svg ***!
@@ -18717,6 +18792,50 @@ module.exports = __webpack_require__.p + "images/c1d827db83a0c941070a.svg";
 
 "use strict";
 module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNDc0ODcgNC40NzQ5QzIuMzI2OTggNi42MjI3OSAyLjMyNjk4IDEwLjEwNTIgNC40NzQ4NyAxMi4yNTMxQzYuNjIyNzUgMTQuNDAxIDEwLjEwNTIgMTQuNDAxIDEyLjI1MyAxMi4yNTMxQzE0LjQwMDkgMTAuMTA1MiAxNC40MDA5IDYuNjIyNzkgMTIuMjUzIDQuNDc0OUMxMC4xMDUyIDIuMzI3MDIgNi42MjI3NSAyLjMyNzAyIDQuNDc0ODcgNC40NzQ5Wk0xMC44Mzg4IDEwLjgzODlDOS40NzE5OSAxMi4yMDU3IDcuMjU1OTEgMTIuMjA1NyA1Ljg4OTA4IDEwLjgzODlDNC41MjIyNCA5LjQ3MjAzIDQuNTIyMjQgNy4yNTU5NSA1Ljg4OTA4IDUuODg5MTJDNy4yNTU5MSA0LjUyMjI4IDkuNDcxOTkgNC41MjIyOCAxMC44Mzg4IDUuODg5MTJDMTIuMjA1NyA3LjI1NTk1IDEyLjIwNTcgOS40NzIwMyAxMC44Mzg4IDEwLjgzODlaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4NCjxwYXRoIGQ9Ik0xMS4xOTI0IDEzLjMxMzdDMTAuNjA2NiAxMi43Mjc5IDEwLjYwNjYgMTEuNzc4MiAxMS4xOTI0IDExLjE5MjRDMTEuNzc4MiAxMC42MDY2IDEyLjcyNzkgMTAuNjA2NiAxMy4zMTM3IDExLjE5MjRMMTYuODQ5MiAxNC43Mjc5QzE3LjQzNSAxNS4zMTM3IDE3LjQzNSAxNi4yNjM1IDE2Ljg0OTIgMTYuODQ5MkMxNi4yNjM1IDE3LjQzNSAxNS4zMTM3IDE3LjQzNSAxNC43Mjc5IDE2Ljg0OTJMMTEuMTkyNCAxMy4zMTM3WiIgZmlsbD0iY3VycmVudENvbG9yIi8+DQo8L3N2Zz4NCg==";
+
+/***/ }),
+
+/***/ "./src/assets/rightArrow.svg":
+/*!***********************************!*\
+  !*** ./src/assets/rightArrow.svg ***!
+  \***********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDkwIDQ5MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDkwIDQ5MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxnPg0KCQkJPHBvbHlnb24gcG9pbnRzPSIyNDAuMTEyLDAgNDgxLjg2MSwyNDUuMDA0IDI0MC4xMTIsNDkwIDguMTM5LDQ5MCAyNTAuMjksMjQ1LjAwNCA4LjEzOSwwIAkJCSIvPg0KCQk8L2c+DQoJPC9nPg0KCTxnPg0KCTwvZz4NCgk8Zz4NCgk8L2c+DQoJPGc+DQoJPC9nPg0KCTxnPg0KCTwvZz4NCgk8Zz4NCgk8L2c+DQoJPGc+DQoJPC9nPg0KCTxnPg0KCTwvZz4NCgk8Zz4NCgk8L2c+DQoJPGc+DQoJPC9nPg0KCTxnPg0KCTwvZz4NCgk8Zz4NCgk8L2c+DQoJPGc+DQoJPC9nPg0KCTxnPg0KCTwvZz4NCgk8Zz4NCgk8L2c+DQoJPGc+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=";
+
+/***/ }),
+
+/***/ "./src/assets/sliderImages/bear.webp":
+/*!*******************************************!*\
+  !*** ./src/assets/sliderImages/bear.webp ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "images/85963804a4882d3533a4.webp";
+
+/***/ }),
+
+/***/ "./src/assets/sliderImages/nike.webp":
+/*!*******************************************!*\
+  !*** ./src/assets/sliderImages/nike.webp ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "images/2695ae364f19c9af305e.webp";
+
+/***/ }),
+
+/***/ "./src/assets/sliderImages/simpsons.webp":
+/*!***********************************************!*\
+  !*** ./src/assets/sliderImages/simpsons.webp ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "images/e652d65ad7d032bd5093.webp";
 
 /***/ }),
 
