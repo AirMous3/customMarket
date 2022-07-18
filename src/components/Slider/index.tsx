@@ -14,7 +14,6 @@ export const MainSliderCarousel = () => {
   const settings = {
     autoplay: true,
     infinite: true,
-    arrows: false,
     autoplaySpeed: 3000,
     speed: 500,
     slidesToShow: 1,

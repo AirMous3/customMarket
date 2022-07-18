@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const SlideCategoryWrapper = styled.div`
   background: blueviolet;
   width: 40%;
@@ -19,4 +18,12 @@ export const SlideWrapper = styled.div`
 `;
 export const SliderContainer = styled.div`
   width: 100%;
+
+  .slick-next:before {
+    color: black;
+  }
+
+  .slick-prev:before {
+    color: black;
+  }
 `;
