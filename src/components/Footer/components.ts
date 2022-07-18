@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.footer`
   padding: 20px 40px;
   display: flex;
   box-shadow: ${({ theme }) => theme.boxShadows[0]};

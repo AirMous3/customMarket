@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { navbarCategories } from '@/components/Header/config';
+
 import {
   HeaderContainer,
   HeaderFavorite,
   HeaderInput,
   HeaderNavbar,
+  HeaderNavbarLi,
   HeaderNavbarUl,
   HeaderTitle,
   HeaderUl,
@@ -34,14 +37,13 @@ export const Header = () => {
       </HeaderWrapper>
       <HeaderNavbar>
         <HeaderNavbarUl>
-          <li>all categories</li>
-          <li>shoes</li>
-          <li>clothing</li>
-          <li>tops</li>
-          <li style={{ color: '#cd0000' }}>only custom</li>
-          <li>accessories</li>
-          <li>vintage</li>
-          <li>merch</li>
+          {navbarCategories.map(({ path, label, mode }, index) => (
+            <a href={path}>
+              <HeaderNavbarLi mode={mode} key={index}>
+                {label}
+              </HeaderNavbarLi>
+            </a>
+          ))}
         </HeaderNavbarUl>
       </HeaderNavbar>
     </HeaderContainer>

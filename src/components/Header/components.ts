@@ -18,7 +18,7 @@ export const HeaderInput = styled.input`
   padding-right: 25px;
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding-top: 10px;
   padding-bottom: 10px;
@@ -122,9 +122,9 @@ export const HeaderNavbarUl = styled.ul`
   display: flex;
   gap: 20px;
   font-size: 13px;
-
-  li {
-    text-transform: uppercase;
-    cursor: pointer;
-  }
+`;
+export const HeaderNavbarLi = styled.li<any>`
+  text-transform: uppercase;
+  cursor: pointer;
+  color: ${({ theme, mode }) => (mode ? theme.colors.darkRed : 'inherit')};
 `;

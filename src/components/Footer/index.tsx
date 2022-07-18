@@ -14,15 +14,24 @@ export const Footer = () => {
   return (
     <FooterWrapper>
       <FooterLinks>
-        {footerLinks.map(({ path, label }) => (
-          <FooterLink href={path} rel="noopener noreferrer nofollow">
+        {footerLinks.map(({ path, label }, index) => (
+          <FooterLink
+            key={index}
+            href={path}
+            rel="noopener noreferrer nofollow"
+          >
             {label}
           </FooterLink>
         ))}
       </FooterLinks>
       <FooterIconWrapper>
-        {footerIcons.map(({ icon, path }) => (
-          <a href={path} target="_blank" rel="noopener noreferrer nofollow">
+        {footerIcons.map(({ icon, path }, index) => (
+          <a
+            key={index}
+            href={path}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <FooterIcon icon={icon} />
           </a>
         ))}
