@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import left from '@/assets/left.svg';
+import right from '@/assets/right.svg';
+
 export const SlideCategoryWrapper = styled.div`
   background: blueviolet;
   width: 40%;
@@ -20,10 +23,12 @@ export const SliderContainer = styled.div`
   width: 100%;
 
   .slick-next:before {
+    content: url(${right});
     color: black;
   }
 
   .slick-prev:before {
+    content: url(${left});
     color: black;
   }
 `;
