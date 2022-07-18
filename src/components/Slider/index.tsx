@@ -3,12 +3,34 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import { sliderConfig } from '@/components/Slider/config';
+
 import {
+  SlideButton,
+  SlideCategorySubTitle,
+  SlideCategoryTitle,
   SlideCategoryWrapper,
   SlideImage,
   SlideWrapper,
   SliderContainer,
 } from './components';
+import { SlidePropsType } from './types';
+
+const Slide = ({ subtitle, title, image, path }: SlidePropsType) => {
+  console.log(image)
+  return (
+    <SlideWrapper>
+      <SlideCategoryWrapper>
+        <SlideCategorySubTitle>{subtitle}</SlideCategorySubTitle>
+        <SlideCategoryTitle>{title}</SlideCategoryTitle>
+        <a href={path}>
+          <SlideButton>shop now</SlideButton>
+        </a>
+      </SlideCategoryWrapper>
+      <SlideImage image={image} />
+    </SlideWrapper>
+  );
+};
 
 export const MainSliderCarousel = () => {
   const settings = {
@@ -40,23 +62,15 @@ export const MainSliderCarousel = () => {
   return (
     <SliderContainer>
       <Slider {...settings}>
-        <SlideWrapper>
-          <SlideCategoryWrapper>
-            <div>CATEGORIES</div>
-            <div>NAME: GUCCI</div>
-            <button>buy now</button>
-          </SlideCategoryWrapper>
-          <SlideImage>IMAGE</SlideImage>
-        </SlideWrapper>
-
-        <SlideWrapper>
-          <SlideCategoryWrapper>
-            <div>CATEGORIES</div>
-            <div>NAME: GUCCI</div>
-            <button>buy now</button>
-          </SlideCategoryWrapper>
-          <SlideImage>IMAGE</SlideImage>
-        </SlideWrapper>
+        {sliderConfig.map(({ path, subtitle, title, image }, index) => (
+          <Slide
+            key={index}
+            subtitle={subtitle}
+            title={title}
+            image={image}
+            path={path}
+          />
+        ))}
       </Slider>
     </SliderContainer>
   );
