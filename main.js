@@ -18074,6 +18074,70 @@ exports.ArticleTitle = ArticleTitle;
 
 /***/ }),
 
+/***/ "./src/components/BestCustomWeek/components.ts":
+/*!*****************************************************!*\
+  !*** ./src/components/BestCustomWeek/components.ts ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.BestCustomWeekImage = exports.BestCustomWeekContainer = void 0;
+const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
+const custom_shoes_webp_1 = __importDefault(__webpack_require__(/*! @/assets/bestCustomWeek/custom_shoes.webp */ "./src/assets/bestCustomWeek/custom_shoes.webp"));
+exports.BestCustomWeekContainer = styled_components_1.default.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  a {
+    height: 475px;
+    width: 60%;
+  }
+`;
+exports.BestCustomWeekImage = styled_components_1.default.div `
+  width: 100%;
+  height: 100%;
+  background-image: url(${custom_shoes_webp_1.default});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+`;
+
+
+/***/ }),
+
+/***/ "./src/components/BestCustomWeek/index.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/BestCustomWeek/index.tsx ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.BestCustomWeek = void 0;
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const components_1 = __webpack_require__(/*! ./components */ "./src/components/BestCustomWeek/components.ts");
+const BestCustomWeek = () => {
+    return (react_1.default.createElement(components_1.BestCustomWeekContainer, null,
+        react_1.default.createElement("h3", null, "Best Custom Of The Week"),
+        react_1.default.createElement("a", { href: "#ololo" },
+            react_1.default.createElement(components_1.BestCustomWeekImage, null))));
+};
+exports.BestCustomWeek = BestCustomWeek;
+
+
+/***/ }),
+
 /***/ "./src/components/Container/index.ts":
 /*!*******************************************!*\
   !*** ./src/components/Container/index.ts ***!
@@ -18537,23 +18601,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MainBestCustom = exports.MainWrapper = void 0;
+exports.MainWrapper = void 0;
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
 exports.MainWrapper = styled_components_1.default.main `
   display: flex;
   flex-direction: column;
   gap: 50px;
-`;
-exports.MainBestCustom = styled_components_1.default.div `
-  display: flex;
-  justify-content: center;
-  width: 100%;
-
-  div {
-    background: aqua;
-    height: 475px;
-    width: 60%;
-  }
 `;
 
 
@@ -18573,6 +18626,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Main = void 0;
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const BestCustomWeek_1 = __webpack_require__(/*! @/components/BestCustomWeek */ "./src/components/BestCustomWeek/index.tsx");
 const LatestCustoms_1 = __webpack_require__(/*! @/components/LatestCustoms */ "./src/components/LatestCustoms/index.tsx");
 const PopularCustoms_1 = __webpack_require__(/*! @/components/PopularCustoms */ "./src/components/PopularCustoms/index.tsx");
 const Slider_1 = __webpack_require__(/*! @/components/Slider */ "./src/components/Slider/index.tsx");
@@ -18582,8 +18636,7 @@ const Main = () => {
         react_1.default.createElement(Slider_1.MainSliderCarousel, null),
         react_1.default.createElement(LatestCustoms_1.LatestCustoms, null),
         react_1.default.createElement(PopularCustoms_1.PopularCustoms, null),
-        react_1.default.createElement(components_1.MainBestCustom, null,
-            react_1.default.createElement("div", null, " BEST CUSTOM OF THE WEEK"))));
+        react_1.default.createElement(BestCustomWeek_1.BestCustomWeek, null)));
 };
 exports.Main = Main;
 
@@ -19061,6 +19114,17 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTUgMTMiIGZp
 
 "use strict";
 module.exports = "data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMjggMjgiIHdpZHRoPSIyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJjdXJyZW50Q29sb3IiPjxwYXRoIGQ9Im0xNy41OTAzIDNjMi4xODMgMCAzLjIzMjcuMjAyNzEgNC4zMjM0Ljc4NjAyLjk4OTEuNTI4OTcgMS43NzEzIDEuMzExMTggMi4zMDAzIDIuMzAwMjcuNTgzMyAxLjA5MDY4Ljc4NiAyLjE0MDQyLjc4NiA0LjMyMzQxdjcuMTgwNmMwIDIuMTgzLS4yMDI3IDMuMjMyNy0uNzg2IDQuMzIzNC0uNTI5Ljk4OTEtMS4zMTEyIDEuNzcxMy0yLjMwMDMgMi4zMDAzLTEuMDkwNy41ODMzLTIuMTQwNC43ODYtNC4zMjM0Ljc4NmgtNy4xODA2Yy0yLjE4Mjk5IDAtMy4yMzI3My0uMjAyNy00LjMyMzQxLS43ODYtLjk4OTA5LS41MjktMS43NzEzLTEuMzExMi0yLjMwMDI3LTIuMzAwMy0uNTgzMzEtMS4wOTA3LS43ODYwMi0yLjE0MDQtLjc4NjAyLTQuMzIzNHYtNy4xODA2YzAtMi4xODI5OS4yMDI3MS0zLjIzMjczLjc4NjAyLTQuMzIzNDEuNTI4OTctLjk4OTA5IDEuMzExMTgtMS43NzEzIDIuMzAwMjctMi4zMDAyNyAxLjA5MDY4LS41ODMzMSAyLjE0MDQyLS43ODYwMiA0LjMyMzQxLS43ODYwMnptMCAyaC03LjE4MDZjLTEuODgxMDYgMC0yLjYxODg4LjE0MjQ4LTMuMzgwMjIuNTQ5NjQtLjY0MDU0LjM0MjU3LTEuMTM3MjcuODM5My0xLjQ3OTg0IDEuNDc5ODQtLjQwNzE2Ljc2MTM0LS41NDk2NCAxLjQ5OTE2LS41NDk2NCAzLjM4MDIydjcuMTgwNmMwIDEuODgxMS4xNDI0OCAyLjYxODkuNTQ5NjQgMy4zODAyLjM0MjU3LjY0MDYuODM5MyAxLjEzNzMgMS40Nzk4NCAxLjQ3OTkuNzYxMzQuNDA3MSAxLjQ5OTE2LjU0OTYgMy4zODAyMi41NDk2aDcuMTgwNmMxLjg4MTEgMCAyLjYxODktLjE0MjUgMy4zODAyLS41NDk2LjY0MDYtLjM0MjYgMS4xMzczLS44MzkzIDEuNDc5OS0xLjQ3OTkuNDA3MS0uNzYxMy41NDk2LTEuNDk5MS41NDk2LTMuMzgwMnYtNy4xODA2YzAtMS44ODEwNi0uMTQyNS0yLjYxODg4LS41NDk2LTMuMzgwMjItLjM0MjYtLjY0MDU0LS44MzkzLTEuMTM3MjctMS40Nzk5LTEuNDc5ODQtLjc2MTMtLjQwNzE2LTEuNDk5MS0uNTQ5NjQtMy4zODAyLS41NDk2NHoiLz48cGF0aCBkPSJtMTQuNzU5IDE4LjMzYy00LjUxMjUgMC03LjI1MDI0LTMuMTI3NS03LjM1NzUxLTguMzNoMi4yODU0NmMuMDcxMjUgMy44MjE2IDEuODA5OTUgNS40MzcgMy4xNDI4NSA1Ljc3di01Ljc3aDIuMTkwMnYzLjNjMS4yODU2LS4xNDI1IDIuNjMxMi0xLjY0NDUgMy4wODM1LTMuM2gyLjE1NThjLS4zNDUgMi4wMzU3LTEuODA5OSAzLjUzMTItMi44NDUgNC4xNSAxLjAzNTkuNTAwMyAyLjcwMjUgMS44MTEzIDMuMzQ1MyA0LjE4aC0yLjM2OTVjLS41MDAzLTEuNTgzNC0xLjcyNTktMi44MDM1LTMuMzY5My0yLjk3djIuOTd6Ii8+PC9nPjwvc3ZnPgo=";
+
+/***/ }),
+
+/***/ "./src/assets/bestCustomWeek/custom_shoes.webp":
+/*!*****************************************************!*\
+  !*** ./src/assets/bestCustomWeek/custom_shoes.webp ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "images/4e0e6a2a5d1ae870bd98.webp";
 
 /***/ }),
 
