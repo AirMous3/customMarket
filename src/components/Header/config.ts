@@ -1,6 +1,6 @@
 export type navbarCategoriesType = {
   path: string;
-  mode?: boolean;
+  mode?: string;
   label: string;
 }[];
 
@@ -9,7 +9,7 @@ export const navbarCategories: navbarCategoriesType = [
   { path: '#shoes', label: 'shoes' },
   { path: '#clothing', label: 'clothing' },
   { path: '#tops', label: 'tops' },
-  { path: '#only_custom', mode: true, label: 'only custom' },
+  { path: '#only_custom', mode: 'red', label: 'only custom' },
   { path: '#accessories', label: 'accessories' },
   { path: '#vintage', label: 'vintage' },
   { path: '#merch', label: 'merch' },

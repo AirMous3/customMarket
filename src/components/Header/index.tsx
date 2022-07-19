@@ -38,10 +38,8 @@ export const Header = () => {
       <HeaderNavbar>
         <HeaderNavbarUl>
           {navbarCategories.map(({ path, label, mode }, index) => (
-            <a href={path}>
-              <HeaderNavbarLi mode={mode} key={index}>
-                {label}
-              </HeaderNavbarLi>
+            <a href={path} key={index}>
+              <HeaderNavbarLi mode={mode}>{label}</HeaderNavbarLi>
             </a>
           ))}
         </HeaderNavbarUl>
