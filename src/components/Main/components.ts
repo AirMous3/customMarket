@@ -3,20 +3,9 @@ import styled from 'styled-components';
 export const MainWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
 `;
 
-export const MainPopularCustoms = styled.ul`
-  display: flex;
-  width: 100%;
-  gap: 15px;
-
-  li {
-    background: blue;
-    width: 33.33%;
-    height: 200px;
-  }
-`;
 export const MainBestCustom = styled.div`
   display: flex;
   justify-content: center;

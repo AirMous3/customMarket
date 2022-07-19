@@ -21,3 +21,7 @@ export const ArticleSeeMore = styled.a`
 export const ArticleSubTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes[3]};
 `;
+
+export const ArticleSpan = styled.span`
+  color: ${({ theme }) => theme.colors.darkRed};
+`;

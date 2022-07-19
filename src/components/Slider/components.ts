@@ -10,6 +10,7 @@ export const SlideCategoryWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   text-transform: uppercase;
+  padding-left: 50px;
 `;
 
 export const SlideCategoryTitle = styled.h3``;

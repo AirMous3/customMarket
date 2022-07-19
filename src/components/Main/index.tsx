@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { LatestCustoms } from '@/components/LatestCustoms';
+import { PopularCustoms } from '@/components/PopularCustoms';
 import { MainSliderCarousel } from '@/components/Slider';
 
-import { MainBestCustom, MainPopularCustoms, MainWrapper } from './components';
+import { MainBestCustom, MainWrapper } from './components';
 
 export const Main = () => {
   return (
@@ -12,11 +13,8 @@ export const Main = () => {
 
       <LatestCustoms />
 
-      <MainPopularCustoms>
-        <li>POPULAR CUSTOMS</li>
-        <li>POPULAR CUSTOMS</li>
-        <li>POPULAR CUSTOMS</li>
-      </MainPopularCustoms>
+      <PopularCustoms />
+
       <MainBestCustom>
         <div> BEST CUSTOM OF THE WEEK</div>
       </MainBestCustom>
